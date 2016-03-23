@@ -147,8 +147,8 @@ def return_xyz_formatted_array(x, y, z, period=np.inf, **kwargs):
     """
     posdict = {'x': np.copy(x), 'y': np.copy(y), 'z': np.copy(z)}
 
-    a = 'velocity_distortion_dimension' in kwargs.keys()
-    b = 'velocity' in kwargs.keys()
+    a = 'velocity_distortion_dimension' in list(kwargs.keys())
+    b = 'velocity' in list(kwargs.keys())
     if bool(a+b)==True:
         if bool(a*b)==False:
             msg = ("You must either both or none of the following keyword arguments: "
