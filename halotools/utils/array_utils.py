@@ -5,6 +5,8 @@ Modules performing small, commonly used tasks throughout the package.
 
 """
 
+import missing `from __future__ import absolute_import
+
 import numpy as np
 from astropy.table import Table
 
