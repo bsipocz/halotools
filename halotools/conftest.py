@@ -4,10 +4,25 @@
 
 from astropy.tests.pytest_plugins import *
 import os
+import warnings
 from . import version
 
 # Uncomment the following line to treat all DeprecationWarnings as
 # exceptions
+
+warnings.simplefilter('ignore', DeprecationWarning)
+# Here's the wrinkle: a couple of our third-party dependencies
+# (py.test and scipy) are still using deprecated features
+# themselves, and we'd like to ignore those.  Fortunately, those
+# show up only at import time, so if we import those things *now*,
+# before we turn the warnings into exceptions, we're golden.
+try:
+    # A deprecated stdlib module used by py.test
+    import pytest  # pylint: disable=W0611
+    import unittest  # pylint: disable=W0611
+except ImportError:
+    pass
+
 enable_deprecations_as_exceptions()
 
 # Uncomment and customize the following lines to add/remove entries from
