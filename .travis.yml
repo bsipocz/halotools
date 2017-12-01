@@ -32,7 +32,7 @@ env:
         - SETUP_CMD='test'
         - PIP_DEPENDENCIES=''
         # Here we list the dependencies to be installed that are in conda
-        - CONDA_DEPENDENCIES='cython scipy beautifulsoup4 requests matplotlib h5py'
+        - CONDA_DEPENDENCIES='cython scipy beautifulsoup4 requests matplotlib h5py hypothesis'
 
 matrix:
     include:
